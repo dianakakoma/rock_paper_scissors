@@ -9,27 +9,36 @@ options = ["rock","paper","scissors"]
 
 #generate a random guess from the computer
 computerChoice = options[random.randint(0,2)]
+
 #ask the human for their name
-humanPlay = input("What is your name? ")
+name = input("What is your name? ")
+
 #ask the human if they want to play
-want_to_play = input("Do you want to play? (Yes or NO)")
+want_to_play = input("Do you want to play? (Yes or NO) ").lower()
+
 #if the human's response is yes, then play. Otherwise, end the game.
 if want_to_play == 'yes':
+    print("okay")
+    #get input from the human
+    while True:
+        choice = input("Enter 'rock, paper, scissors or stop'. ")
+        #compare the answers and declare a winner or a tie
+        if choice == "stop":
+            print("Goodbye!")
+            break
 
-#get input from the human
-    human_play = input("Enter 'Rock, paper or scissors' ").lower()
-    print("Hal's play: ",computerChoice)
-#compare the answers and declare a winner
-    if humanPlay > computerChoice:
-        print("You win, ", human)
-    elif computerChoice > humanPlay:
-        print("You win, Hal!")
-    else:
-        print("It's a tie!")
+        elif choice > computerChoice:
+            print(name, "wins!")
+        elif computerChoice > choice:
+            print("Hal won this round!")
+        elif computerChoice == choice:
+            print("It's a tie")
+        else:
+            print("Invalid response. Try again.")
+            choice = input("Enter 'rock, paper, scissors or stop'. ")
 
 #if the answer is no, end the game
-
-if want_to_play == "no":
+else:
     print("Goodbye!")
 
 
